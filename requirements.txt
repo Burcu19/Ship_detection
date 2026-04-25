@@ -1,0 +1,9 @@
+tensorflow>=2.13
+scikit-learn
+numpy
+pandas
+matplotlib
+Pillow
+ultralytics
+openai>=1.0
+python-dotenv
