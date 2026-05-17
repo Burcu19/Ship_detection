@@ -1,0 +1,17 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+.claude/
+
+# Outputs
+results/
+runs/
+
+# Model weights
+*.pt

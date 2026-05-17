@@ -10,7 +10,20 @@ from vlm.vlm import VLM
 from vlm.metrics_vlm import Metrics as VLMMetrics
 
 
-DATA_DIR = "data/shipsnet/shipsnet"
+def _resolve_data_dir():
+    candidates = [
+        "data/shipsnet/shipsnet",
+        "../../../data/shipsnet/shipsnet",
+        os.path.join(os.path.dirname(__file__), "data/shipsnet/shipsnet"),
+        os.path.join(os.path.dirname(__file__), "../../../data/shipsnet/shipsnet"),
+    ]
+    for c in candidates:
+        if os.path.isdir(c):
+            return os.path.abspath(c)
+    raise FileNotFoundError("ShipsNet data klasoru bulunamadi.")
+
+
+DATA_DIR = _resolve_data_dir()
 IMAGE_SIZE = 224
 SAMPLE_RATIO = 0.10
 BATCH_SIZE = 32
